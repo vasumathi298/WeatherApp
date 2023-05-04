@@ -1,0 +1,102 @@
+<div class="search">
+  <form #form="ngForm" (submit)="onSubmit()">
+    <input type="text" placeholder="Search City" name="city" [(ngModel)]="cityName" ngModel>
+  </form>
+</div>
+
+<div class="container" *ngIf="weatherData">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+  <div class="upper-data">
+    <img src="../assets/cold-bg.jpg" *ngIf="weatherData.current_observation.condition.temperature > 15 " >
+    <img src="../assets/warm-bg.jpg" *ngIf="weatherData.current_observation.condition.temperature <= 15 ">
+  <div class="weather-data">
+    <div class="location">
+      {{weatherData.location.city}}
+    </div>
+    <div class="temperature">
+      {{5/9*(weatherData.current_observation.condition.temperature-32) | number :"1.0-0"}}&#176;C 
+    </div>
+  </div>
+  </div>
+
+  <div class="lower-data">
+    <div class="more-info-label">
+      More Information
+    </div>
+    <div class="more-info-container">
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/min.png" alt="" class="l">
+          
+          <span>min</span>
+        </div>
+        <div class="info-block-value">
+          {{5/9*(weatherData.forecasts[0].low-32)| number :"1.0-0"}}&#176;C
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/max.png" alt="" class="l">
+          
+          <span>max</span>
+        </div>
+        <div class="info-block-value">
+          {{5/9*(weatherData.forecasts[0].high-32)| number :"1.0-0"}}&#176;C
+        </div>
+      </div>
+
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/humidity.png" alt="" class="l">
+          
+          <span>humidity</span>
+        </div>
+        <div class="info-block-value">
+          {{weatherData.current_observation.atmosphere.humidity}}
+        </div>
+      </div>
+
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/wind.png" alt="" class="l">
+          
+          <span>wind speed</span>
+        </div>
+        <div class="info-block-value">
+          {{weatherData.current_observation.wind.speed}}km/h
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/sunrise.png" alt="" class="l">
+          
+          <span>sunrise</span>
+        </div>
+        <div class="info-block-value">
+          {{weatherData.current_observation.astronomy.sunrise}}
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/sunset.png" alt="" class="l">
+          
+          <span>sunrise</span>
+        </div>
+        <div class="info-block-value">
+          {{weatherData.current_observation.astronomy.sunset}}
+        </div>
+      </div>
+
+    </div>
+
+    
+
+  </div>
+</div>
+<router-outlet></router-outlet>
