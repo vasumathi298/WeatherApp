@@ -2,6 +2,13 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.7.
 
+## Deployment in Firebase
+
+This application was deployed in firebase link: https://weatherapp-1442a.web.app/ and The weather data has been retrived from Rapid API's Yahoo Weather API
+![image](https://user-images.githubusercontent.com/72432533/236235843-e26ca991-fdfc-4216-89b4-1ada46836314.png)
+
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
@@ -25,3 +32,5 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
